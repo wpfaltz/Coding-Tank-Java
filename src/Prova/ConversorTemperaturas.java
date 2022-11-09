@@ -89,135 +89,120 @@ public class ConversorTemperaturas {
 							+ "2) Fahrenheit\n"
 							+ "3) Kelvin");
 		int codUnidadeOrigem = input.nextInt();
-		
-		//Unidade da temperatura objetivo
-		System.out.println("Qual a unidade de temperatura para a qual gostaria de converter as temperaturas informadas?\n" 
-							+ "1) Celsius\n" 
-							+ "2) Fahrenheit\n" 
-							+ "3) Kelvin");
-		int codUnidadeObjetivo = input.nextInt();
-
-		// Inicializando os arrays que guardarão as temperaturas e inicializando as strings que representarão as unidades
-		double[] TemperaturasIniciais = new double[qtdTemperaturas];
-		double[] TemperaturasFinais = new double[qtdTemperaturas];
-		String UnidadeInicial = "";
-		String UnidadeFinal = "";
-		
-		// Pedir ao usuário as temperaturas a serem convertidas
-		for (int i = 0; i < qtdTemperaturas; i++) {
-			System.out.printf("Insira a temperatura %d a ser convertida: ", i + 1);
-			TemperaturasIniciais[i] = input.nextDouble();
-		}
-		
-		// Combinações possíveis unidade de origem - unidade de destino
-		// Caso das Temperaturas Iniciais em Celsius
-		if (codUnidadeOrigem == 1) {
-			if (codUnidadeObjetivo == 1) { // Final em Celsius
-				UnidadeInicial = "ºC"; 
-				UnidadeFinal = "ºC";
-				for(int i = 0; i<qtdTemperaturas; i++) {
-					TemperaturasFinais[i] = CelsiusToCelsius(TemperaturasIniciais[i]);
-				}
-			}
-			else if (codUnidadeObjetivo == 2) {//Final em Fahrenheit
-				UnidadeInicial = "ºC"; 
-				UnidadeFinal = "ºF";
-				for(int i = 0; i<qtdTemperaturas; i++) {
-					TemperaturasFinais[i] = CelsiusToFahrenheit(TemperaturasIniciais[i]);
-				}
-			}
-			else if (codUnidadeObjetivo == 3) {//Final em Kelvin
-				UnidadeInicial = "ºC"; 
-				UnidadeFinal = "K";
-				for(int i = 0; i<qtdTemperaturas; i++) {
-					TemperaturasFinais[i] = CelsiusToKelvin(TemperaturasIniciais[i]);
-				}
-			}
-			else {
-				
-			}
-				
-		}
-		//Caso das temperaturas iniciais em Fahrenheit
-		else if (codUnidadeOrigem == 2) {
-			if (codUnidadeObjetivo == 1) { // Final em Celsius
-				UnidadeInicial = "ºF"; 
-				UnidadeFinal = "ºC";
-				for(int i = 0; i<qtdTemperaturas; i++) {
-					TemperaturasFinais[i] = FahrenheitToCelsius(TemperaturasIniciais[i]);
-				}
-			}
-			else if (codUnidadeObjetivo == 2) {//Final em Fahrenheit
-				UnidadeInicial = "ºF"; 
-				UnidadeFinal = "ºF";
-				for(int i = 0; i<qtdTemperaturas; i++) {
-					TemperaturasFinais[i] = FahrenheitToFahrenheit(TemperaturasIniciais[i]);
-				}
-			}
-			else if (codUnidadeObjetivo == 3) {//Final em Kelvin
-				UnidadeInicial = "ºF"; 
-				UnidadeFinal = "K";
-				for(int i = 0; i<qtdTemperaturas; i++) {
-					TemperaturasFinais[i] = FahrenheitToKelvin(TemperaturasIniciais[i]);
-				}
-			}
-			else {
-				
-			}
-		
-		}
-		
-		//Caso das temperaturas iniciais em Kelvin
-		else if (codUnidadeOrigem == 3) {
-			if (codUnidadeObjetivo == 1) { // Final em Celsius
-				UnidadeInicial = "K"; 
-				UnidadeFinal = "ºC";
-				for(int i = 0; i<qtdTemperaturas; i++) {
-					TemperaturasFinais[i] = KelvinToCelsius(TemperaturasIniciais[i]);
-				}
-			}
-			else if (codUnidadeObjetivo == 2) {//Final em Fahrenheit
-				UnidadeInicial = "K"; 
-				UnidadeFinal = "ºF";
-				for(int i = 0; i<qtdTemperaturas; i++) {
-					TemperaturasFinais[i] = KelvinToFahrenheit(TemperaturasIniciais[i]);
-				}
-			}
-			else if (codUnidadeObjetivo == 3) {//Final em Kelvin
-				UnidadeInicial = "K"; 
-				UnidadeFinal = "K";
-				for(int i = 0; i<qtdTemperaturas; i++) {
-					TemperaturasFinais[i] = KelvinToKelvin(TemperaturasIniciais[i]);
-				}
-			}
-			else {
-				
-			}
+			//Unidade da temperatura objetivo
+			System.out.println("Qual a unidade de temperatura para a qual gostaria de converter as temperaturas informadas?\n" 
+								+ "1) Celsius\n" 
+								+ "2) Fahrenheit\n" 
+								+ "3) Kelvin");
+			int codUnidadeObjetivo = input.nextInt();
+			// Inicializando os arrays que guardarão as temperaturas e inicializando as strings que representarão as unidades
+			double[] TemperaturasIniciais = new double[qtdTemperaturas];
+			double[] TemperaturasFinais = new double[qtdTemperaturas];
+			String UnidadeInicial = "";
+			String UnidadeFinal = "";
 			
-		}
-		else {
-			
-		}
-
-		// Imprimir as temperaturas passadas pelo usuário com a unidade escolhida
-		System.out.println("\nAs temperaturas que você escolheu para serem convertidas foram: ");
-		for(int i = 0;i<qtdTemperaturas;i++) {
-			System.out.printf("%.2f%s\n", TemperaturasIniciais[i], UnidadeInicial);
-		}
+			// Pedir ao usuário as temperaturas a serem convertidas
+			for (int i = 0; i < qtdTemperaturas; i++) {
+				System.out.printf("Insira a temperatura %d a ser convertida: ", i + 1);
+				TemperaturasIniciais[i] = input.nextDouble();
+			}
+				
+			// Combinações possíveis unidade de origem - unidade de destino
+			// Caso das Temperaturas Iniciais em Celsius
+			if (codUnidadeOrigem == 1) {
+				if (codUnidadeObjetivo == 1) { // Final em Celsius
+					UnidadeInicial = "ºC"; 
+					UnidadeFinal = "ºC";
+					for(int i = 0; i<qtdTemperaturas; i++) {
+						TemperaturasFinais[i] = CelsiusToCelsius(TemperaturasIniciais[i]);
+						}
+					}
+					else if (codUnidadeObjetivo == 2) {//Final em Fahrenheit
+						UnidadeInicial = "ºC"; 
+						UnidadeFinal = "ºF";
+						for(int i = 0; i<qtdTemperaturas; i++) {
+							TemperaturasFinais[i] = CelsiusToFahrenheit(TemperaturasIniciais[i]);
+						}
+					}
+					else if (codUnidadeObjetivo == 3) {//Final em Kelvin
+						UnidadeInicial = "ºC"; 
+						UnidadeFinal = "K";
+						for(int i = 0; i<qtdTemperaturas; i++) {
+							TemperaturasFinais[i] = CelsiusToKelvin(TemperaturasIniciais[i]);
+						}
+					}
+						
+				}
+				//Caso das temperaturas iniciais em Fahrenheit
+				else if (codUnidadeOrigem == 2) {
+					if (codUnidadeObjetivo == 1) { // Final em Celsius
+						UnidadeInicial = "ºF"; 
+						UnidadeFinal = "ºC";
+						for(int i = 0; i<qtdTemperaturas; i++) {
+							TemperaturasFinais[i] = FahrenheitToCelsius(TemperaturasIniciais[i]);
+						}
+					}
+					else if (codUnidadeObjetivo == 2) {//Final em Fahrenheit
+						UnidadeInicial = "ºF"; 
+						UnidadeFinal = "ºF";
+						for(int i = 0; i<qtdTemperaturas; i++) {
+							TemperaturasFinais[i] = FahrenheitToFahrenheit(TemperaturasIniciais[i]);
+						}
+					}
+					else if (codUnidadeObjetivo == 3) {//Final em Kelvin
+						UnidadeInicial = "ºF"; 
+						UnidadeFinal = "K";
+						for(int i = 0; i<qtdTemperaturas; i++) {
+							TemperaturasFinais[i] = FahrenheitToKelvin(TemperaturasIniciais[i]);
+						}
+					}
+				
+				}
+				
+				//Caso das temperaturas iniciais em Kelvin
+				else if (codUnidadeOrigem == 3) {
+					if (codUnidadeObjetivo == 1) { // Final em Celsius
+						UnidadeInicial = "K"; 
+						UnidadeFinal = "ºC";
+						for(int i = 0; i<qtdTemperaturas; i++) {
+							TemperaturasFinais[i] = KelvinToCelsius(TemperaturasIniciais[i]);
+						}
+					}
+					else if (codUnidadeObjetivo == 2) {//Final em Fahrenheit
+						UnidadeInicial = "K"; 
+						UnidadeFinal = "ºF";
+						for(int i = 0; i<qtdTemperaturas; i++) {
+							TemperaturasFinais[i] = KelvinToFahrenheit(TemperaturasIniciais[i]);
+						}
+					}
+					else if (codUnidadeObjetivo == 3) {//Final em Kelvin
+						UnidadeInicial = "K"; 
+						UnidadeFinal = "K";
+						for(int i = 0; i<qtdTemperaturas; i++) {
+							TemperaturasFinais[i] = KelvinToKelvin(TemperaturasIniciais[i]);
+						}
+					}
+					
+				}
 		
-		// Imprimir a média das temperaturas passadas pelo usuário;
-		double mediaInicial = getMedia(TemperaturasIniciais);
-		System.out.printf("\nA média das temperaturas iniciais inseridas é %.2f%s\n", mediaInicial, UnidadeInicial);
-		
-		// Imprimir as temperaturas na unidade pedida pelo usuário com a unidade objetivo
-		System.out.println("\nAs temperaturas finais obtidas foram respectivamente: ");
-		for(int i = 0;i<qtdTemperaturas;i++) {
-			System.out.printf("%.2f%s\n", TemperaturasFinais[i], UnidadeFinal);
-		}
-		
-		// Imprimir a média das temperaturas da unidade objetivo
-		double mediaFinal = getMedia(TemperaturasFinais);
-		System.out.printf("\nA média das temperaturas finais obtidas é %.2f%s\n", mediaFinal, UnidadeFinal);
-	
-	}
+				// Imprimir as temperaturas passadas pelo usuário com a unidade escolhida
+				System.out.println("\nAs temperaturas que você escolheu para serem convertidas foram: ");
+				for(int i = 0;i<qtdTemperaturas;i++) {
+					System.out.printf("%.2f%s\n", TemperaturasIniciais[i], UnidadeInicial);
+				}
+				
+				// Imprimir a média das temperaturas passadas pelo usuário;
+				double mediaInicial = getMedia(TemperaturasIniciais);
+				System.out.printf("\nA média das temperaturas iniciais inseridas é %.2f%s\n", mediaInicial, UnidadeInicial);
+				
+				// Imprimir as temperaturas na unidade pedida pelo usuário com a unidade objetivo
+				System.out.println("\nAs temperaturas finais obtidas foram respectivamente: ");
+				for(int i = 0;i<qtdTemperaturas;i++) {
+					System.out.printf("%.2f%s\n", TemperaturasFinais[i], UnidadeFinal);
+				}
+				
+				// Imprimir a média das temperaturas da unidade objetivo
+				double mediaFinal = getMedia(TemperaturasFinais);
+				System.out.printf("\nA média das temperaturas finais obtidas é %.2f%s\n", mediaFinal, UnidadeFinal);
+			}
 }
